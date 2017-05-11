@@ -1,0 +1,32 @@
+{
+  "name": "funda-devtest",
+  "version": "1.0.0",
+  "description": "My Programming assignment for Funda",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nielsVoogt/Funda-devtest.git"
+  },
+  "keywords": [
+    "Funda"
+  ],
+  "author": "Niels Voogt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nielsVoogt/Funda-devtest/issues"
+  },
+  "homepage": "https://github.com/nielsVoogt/Funda-devtest#readme",
+  "devDependencies": {
+    "breakpoint-sass": "^2.7.1",
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-notify": "^3.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-watch": "^4.3.11",
+    "merge-stream": "^1.0.1",
+  }
+}
