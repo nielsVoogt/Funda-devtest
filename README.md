@@ -1,2 +1,2 @@
-# Funda-devtest
-My Programming assignment for Funda
+# Devtest
+My Programming assignment
