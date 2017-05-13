@@ -1,0 +1,13 @@
+
+/// ----------------------------------------------------------------------------------------------- LABEL
+
+@include b(label) {
+    font-size: .8rem;
+    font-family: $type--base-font-family;
+    font-weight: normal;
+    padding: .25em .5em;
+    border-radius: .25em;
+    border: 1px solid $white;
+    position: relative;
+    text-transform: none;
+}

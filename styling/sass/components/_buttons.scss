@@ -1,0 +1,31 @@
+
+/// ----------------------------------------------------------------------------------------------- BUTTONMIXIN
+
+@include b(btn) {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: transparent; /* For some Androids */
+    background: $button--background;
+    border: 1px solid $white;
+    color: $button--color;
+    cursor: pointer;
+    display: inline-block;
+    font-family: $type--base-font-family;
+    font-size: .9rem;
+    line-height: normal;
+    padding: 12px 24px;
+    text-align: center;
+    transition-timing-function: ease-in-out;
+    transition: background .1s;
+    vertical-align: top;
+
+    &:hover {
+        background: $white;
+        color: $color--primary;
+    }
+
+    /// ----------------------------------------------------------------------------------------------- MODIFIERS
+
+    @include m(full) {
+        width: 100%;
+    }
+}

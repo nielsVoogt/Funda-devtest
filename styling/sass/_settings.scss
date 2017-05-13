@@ -1,0 +1,52 @@
+
+/// ----------------------------------------------------------------------------------------------- THE BASICS
+
+$white: #ffffff;
+$black: #000000;
+
+/// ----------------------------------------------------------------------------------------------- GLOBALS
+
+$color--primary: #1cbbb4;
+$color--secondary: #355352;
+
+/// ----------------------------------------------------------------------------------------------- GLOBALS
+
+$global--border-radius: .5em;
+$global--base-background-color: $white !default;
+$global--border-color: #cacaca;
+
+/// ----------------------------------------------------------------------------------------------- BUTTON
+
+$button--background: $color--primary !default;
+$button--hover-background: $color--primary !default;
+$button--color: $white !default;
+
+/// ----------------------------------------------------------------------------------------------- TYPE
+
+$type--anchor-color: $color--primary !default;
+$type--anchor-font-weight: normal !default;
+
+$type--base-font-family: 'Roboto', Helvetica, Arial, sans-serif !default;
+$type--base-font-size: 16px !default; // SET AS PX
+$type--base-line-height: 1.6 !default;
+$type--base-text-color: #6f6f6f !default;
+
+$type--header-color: $color--primary !default;
+$type--header-font-family: 'norwesterregular', Helvetica, Arial, sans-serif !default;
+$type--header-font-weight: normal !default;
+$type--header-letter-spacing: normal !default;
+$type--header-text-transform: uppercase !default;
+
+$type--light-text-color: #a1a1a1 !default;
+$type--paragraph-font-weight: normal !default;
+$type--paragraph-letter-spacing: normal !default;
+
+/// ----------------------------------------------------------------------------------------------- MA BREAKPOINTS..
+
+$breakpoints: (
+    mobile: 480px,
+    on-mobile: max-width 767px,
+    tablet: min-width 768px,
+    on-tablet: (min-width 768px) (max-width 1024px),
+    desktop: min-width 1024px
+);
