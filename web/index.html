@@ -6,67 +6,106 @@
         <meta name="description" content="My Funda development test">
         <meta name="viewport" content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'>
         <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
-        <meta name="theme-color" content="" />
+        <meta name="theme-color" content="#F7A100" />
 
         <link rel="stylesheet" href="../styling/css/main.css">
         <script src="js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
 
-        <div class="funda-tile">
-            <div class="funda-tile__top">
-                <div class="label label--new"></div>
-                <div class="property-image"></div>
-                <div class="property-details">
-                    <h2 class="property-details__primary">
-                        € 237.500 k.k.
-                    </h2>
-                    <small class="property-details__secondary">
-                        145 m² / 149 m² 5 kamers
-                    </small>
-                    <div class="propery-details__button">
-                        <a href="_funda-tile-zoom-picture">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                <path d="M23.81 21.646l-6.206-6.205c1.168-1.604 1.857-3.578 1.857-5.71C19.46 4.365 15.098 0 9.73 0 4.366 0 0 4.365 0 9.73c0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698L21.455 24l2.354-2.354zM2.853 9.73c0-3.792 3.085-6.877 6.877-6.877S16.61 5.938 16.61 9.73s-3.085 6.877-6.877 6.877-6.876-3.085-6.876-6.877z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
+        <div class="funda-header">
+            <div class="container">
+                <img alt="funda logo" src="img/fundawonen-logo.svg" />
             </div>
-            <div class="funda-tile__center">
-                <div class="property-details">
-                    <h2 class="property-details__primary">
-                        Lotterstraat 23
-                    </h2>
-                    <small class="property-details__secondary">
-                        2035 LH Haarlem
-                    </small>
-                    <div class="propery-details__button">
-                        <a href="_funda-tile-show-location">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                                <path d="M12 0C6.478 0 2 4.395 2 9.815 2 15.32 6.375 19.085 12 24c5.625-4.916 10-8.68 10-14.185C22 4.395 17.522 0 12 0zm1 17.932V14h-2v3.932C7.382 17.48 4.52 14.617 4.07 11H8V9H4.07C4.52 5.383 7.382 2.52 11 2.07V6h2V2.07c3.617.45 6.48 3.313 6.93 6.93H16v2h3.93c-.45 3.617-3.313 6.48-6.93 6.932z"/>
-                            </svg>
-                        </a>
+        </div>
+
+        <div class="tile-container">
+            <div class="funda-tile">
+                <div class="funda-tile__top">
+                    <div class="funda-tile__top__labels">
+                        <div class="label label--new">
+                            Nieuw
+                        </div>
+                        <div class="label label--open-house">
+                            Nieuw
+                        </div>
+                    </div>
+                    <div
+                        class="property-image"
+                        style="background: url(img/641_720x480.jpg) no-repeat center center/cover;"
+                    ></div>
+                    <div class="property-details">
+                        <div class="property-details__details">
+                            <h2 class="property-details__primary">
+                                € 237.500 k.k.
+                            </h2>
+                            <small class="property-details__secondary">
+                                145 m² / 149 m² 5 kamers
+                            </small>
+                        </div>
+                        <div class="property-details__button">
+                            <a href="" class="zoom-picture _funda-tile-zoom-picture">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path d="M23.81 21.646l-6.206-6.205c1.168-1.604 1.857-3.578 1.857-5.71C19.46 4.365 15.098 0 9.73 0 4.366 0 0 4.365 0 9.73c0 5.366 4.365 9.73 9.73 9.73 2.034 0 3.923-.627 5.487-1.698L21.455 24l2.354-2.354zM2.853 9.73c0-3.792 3.085-6.877 6.877-6.877S16.61 5.938 16.61 9.73s-3.085 6.877-6.877 6.877-6.876-3.085-6.876-6.877z"/>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="property-content">
-                    <div class="property-content__description">
-                        <p>
-                            Een huis kan alleen maar warmte uitstralen als het plaatje klopt en dat is in dit huis zeker het geval. In dit huis zul je je direct thuis voelen; de zithoek met een grote bank wordt een relaxplek voor het gehele gezin en de gezellige eetkamer zorgt ervoor dat alle verhalen samen komen. Kom eens kijken in deze keurig onderhouden woning in jaren 30 stijl. Hier vind je diverse karakteristieken uit
-                        </p>
+                <div class="funda-tile__center">
+                    <div class="property-details">
+                        <div class="property-details__details">
+                            <h2 class="property-details__primary">
+                                Lotterstraat 23
+                            </h2>
+                            <small class="property-details__secondary">
+                                2035 LH Haarlem
+                            </small>
+                        </div>
+                        <div class="property-details__button">
+                            <a href="_funda-tile-show-location">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    width="24"
+                                    height="24"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path d="M12 0C6.478 0 2 4.395 2 9.815 2 15.32 6.375 19.085 12 24c5.625-4.916 10-8.68 10-14.185C22 4.395 17.522 0 12 0zm1 17.932V14h-2v3.932C7.382 17.48 4.52 14.617 4.07 11H8V9H4.07C4.52 5.383 7.382 2.52 11 2.07V6h2V2.07c3.617.45 6.48 3.313 6.93 6.93H16v2h3.93c-.45 3.617-3.313 6.48-6.93 6.932z"/>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
-                    <div class="property-content__additionals">
-                        <!-- ADDITIONALS HERE -->
+                    <div class="property-content">
+                        <div class="property-content__description">
+                            <div class="property-content__description__inner">
+                                <p>
+                                    Een huis kan alleen maar warmte uitstralen als het plaatje klopt en dat is in dit huis zeker het geval. In dit huis zul je je direct thuis voelen; de zithoek met een grote bank wordt een relaxplek voor het gehele gezin en de gezellige eetkamer zorgt ervoor dat alle verhalen samen komen. Kom eens kijken in deze keurig onderhouden woning in jaren 30 stijl. Hier vind je diverse karakteristieken uit
+                                </p>
+                            </div>
+                        </div>
+                        <div class="property-content__additional-information">
+                            <!-- ADDITIONALS HERE -->
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="funda-tile__bottom">
-                <a href="#" class="_funda-tile-show-more">
-                    <span>Meer informatie</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                        <path d="M6.456 5.384L8.702 3.18 17.48 12l-8.778 8.82-2.246-2.204L13.07 12"/>
-                    </svg>
-                </a>
+                <div class="funda-tile__bottom">
+                    <a href="#" class="btn btn--transparent _funda-tile-show-more">
+                        <span>Meer informatie</span>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="24"
+                            height="24"
+                            viewBox="0 0 24 24"
+                        >
+                            <path d="M6.456 5.384L8.702 3.18 17.48 12l-8.778 8.82-2.246-2.204L13.07 12"/>
+                        </svg>
+                    </a>
+                </div>
             </div>
         </div>
 
