@@ -2,13 +2,13 @@
 /// ----------------------------------------------------------------------------------------------- LAYOUT
 
 @mixin container {
-	max-width: 1024px;
-	width: 90%;
-	margin: 0 auto;
+    max-width: 1024px;
+    width: 90%;
+    margin: 0 auto;
 }
 
 @include b(container) {
-	@include container;
+    @include container;
 }
 
 @include b(funda-header) {

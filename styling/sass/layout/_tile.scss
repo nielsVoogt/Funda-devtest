@@ -1,6 +1,7 @@
 
 @include b(tile-container) {
     @include container;
+    width: 100%;
 
     $amount: 3;
     $margin: .5em;
@@ -26,7 +27,6 @@ $funda-tile--padding: 1em;
 
 @include b(funda-tile) {
     box-shadow: .25em .25em 1em rgba($black, .2);
-    width: 33%;
     background: $white;
     border-radius: $global--border-radius;
     overflow: hidden;
@@ -73,6 +73,11 @@ $funda-tile--padding: 1em;
 
             svg {
                 float: right;
+                transition: all .2s ease-out;
+            }
+
+            &.triggered svg {
+                transform: rotate(180deg);
             }
         }
     }
@@ -123,9 +128,11 @@ $property-content--gradient-height: 3em;
     overflow: hidden;
     position: relative;
 
-    @include e(description) {
+    @include me(description, additional-information) {
         height: 15em;
+        background: $white;
         overflow-y: scroll;
+        transition: all .2s ease-out;
         width: calc(100% + 17px); // To hide the scrollbars
         padding: $funda-tile--padding calc(#{$funda-tile--padding} + 17px) $funda-tile--padding $funda-tile--padding;
 
@@ -134,8 +141,20 @@ $property-content--gradient-height: 3em;
         }
     }
 
-    @include e(additional-information) {
+    @include e(description) {
+        [class$='--triggered'] & {
+            transform: translateY(-100%);
+        }
+    }
 
+    @include e(additional-information) {
+        transform: translateY(100%);
+        position: absolute;
+        top: 0;
+
+        [class$='--triggered'] & {
+            transform: none;
+        }
     }
 
     &::after {
