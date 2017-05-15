@@ -5,9 +5,22 @@
     font-size: .8rem;
     font-family: $type--base-font-family;
     font-weight: normal;
-    padding: .25em .5em;
-    border-radius: .25em;
-    border: 1px solid $white;
+    padding: .25em .5em .125em;
     position: relative;
     text-transform: none;
+    font-weight: bold;
+    display: inline-block;
+    color: $white;
+
+    + #{&} {
+    	margin-left: .5em;
+    }
+
+    @include m(new) {
+    	background: $color--primary;
+    }
+
+    @include m(open-house) {
+    	background: #ACC700;
+    }
 }

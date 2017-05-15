@@ -1,2 +1,22 @@
 
 /// ----------------------------------------------------------------------------------------------- LAYOUT
+
+@mixin container {
+	max-width: 1024px;
+	width: 90%;
+	margin: 0 auto;
+}
+
+@include b(container) {
+	@include container;
+}
+
+@include b(funda-header) {
+    background: $color--primary;
+    padding: 1em 0;
+    margin-bottom: 2em;
+
+    img {
+        width: 6em;
+    }
+}

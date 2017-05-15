@@ -12,11 +12,12 @@
     font-family: $type--base-font-family;
     font-size: .9rem;
     line-height: normal;
-    padding: 12px 24px;
+    padding: 1em;
     text-align: center;
     transition-timing-function: ease-in-out;
     transition: background .1s;
     vertical-align: top;
+    font-weight: bold;
 
     &:hover {
         background: $white;
@@ -27,5 +28,32 @@
 
     @include m(full) {
         width: 100%;
+    }
+
+    @include m(transparent) {
+        background: none;
+        color: $color--primary;
+    }
+
+    svg,
+    span {
+        display: inline-block;
+        vertical-align: middle;
+    }
+}
+
+@include b(zoom-picture) {
+    @include circle(2.5em);
+    background: rgba($white, .7);
+
+    svg {
+        @include square(1em);
+        fill: rgba($black, .5);
+    }
+}
+
+a {
+    svg {
+        fill: $color--primary;
     }
 }

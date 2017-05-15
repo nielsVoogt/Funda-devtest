@@ -6,14 +6,14 @@ $black: #000000;
 
 /// ----------------------------------------------------------------------------------------------- GLOBALS
 
-$color--primary: #1cbbb4;
+$color--primary: #F7A100;
 $color--secondary: #355352;
 
 /// ----------------------------------------------------------------------------------------------- GLOBALS
 
 $global--border-radius: .5em;
-$global--base-background-color: $white !default;
-$global--border-color: #cacaca;
+$global--base-background-color: #e6f2f7 !default;
+$global--border-color: #e5e5e5;
 
 /// ----------------------------------------------------------------------------------------------- BUTTON
 
@@ -26,16 +26,16 @@ $button--color: $white !default;
 $type--anchor-color: $color--primary !default;
 $type--anchor-font-weight: normal !default;
 
-$type--base-font-family: 'Roboto', Helvetica, Arial, sans-serif !default;
+$type--base-font-family: 'ProximaNova', Helvetica, Arial, sans-serif !default;
 $type--base-font-size: 16px !default; // SET AS PX
 $type--base-line-height: 1.6 !default;
 $type--base-text-color: #6f6f6f !default;
 
 $type--header-color: $color--primary !default;
-$type--header-font-family: 'norwesterregular', Helvetica, Arial, sans-serif !default;
-$type--header-font-weight: normal !default;
+$type--header-font-family: 'ProximaNova', Helvetica, Arial, sans-serif !default;
+$type--header-font-weight: bold !default;
 $type--header-letter-spacing: normal !default;
-$type--header-text-transform: uppercase !default;
+$type--header-text-transform: none !default;
 
 $type--light-text-color: #a1a1a1 !default;
 $type--paragraph-font-weight: normal !default;
