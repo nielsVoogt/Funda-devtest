@@ -1,9 +1,9 @@
 
+/// --------------------------------------------------------------------- BASE MIXIN FOR BUTTONS
+
 @mixin btn-base {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-tap-highlight-color: transparent; /* For some Androids */
-    background: $button--background;
-    color: $button--color;
     cursor: pointer;
     display: inline-block;
     font-family: $type--base-font-family;
@@ -16,25 +16,32 @@
     vertical-align: top;
 }
 
+/// --------------------------------------------------------------------- PRIMARY STYLING
+
+@mixin btn-primary {
+    background: $button--background;
+    color: $button--color;
+
+    &:hover {
+        background: $white;
+        color: $color--primary;
+    }
+}
+
 /// ----------------------------------------------------------------------------------------------- BUTTONMIXIN
 
 @include b(btn) {
     @include btn-base;
 
-    &:hover {
-        background: $white;
-        color: $color--primary;
+    @include m(primary) {
+        @include btn-base;
+        @include btn-primary;
     }
 
     /// ----------------------------------------------------------------------------------------------- MODIFIERS
 
     @include m(full) {
         width: 100%;
-    }
-
-    @include m(transparent) {
-        background: none;
-        color: $color--primary;
     }
 
     svg,
@@ -44,10 +51,13 @@
     }
 }
 
-@include b(zoom-picture) {
+/// ----------------------------------------------------------------------------------------------- ROUND BUTTON
+
+@include b(round-btn) {
     @include circle(2.5em);
     background: rgba($white, .7);
     opacity: .8;
+    pointer-events: none;
 
     svg {
         @include square(1em);
@@ -56,11 +66,5 @@
 
     &:hover {
         opacity: 1;
-    }
-}
-
-a {
-    svg {
-        fill: $color--primary;
     }
 }

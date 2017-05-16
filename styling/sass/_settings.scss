@@ -14,12 +14,18 @@ $color--secondary: #355352;
 $global--border-radius: .5em;
 $global--base-background-color: #e6f2f7 !default;
 $global--border-color: #e5e5e5;
+$global--default-transition: all .2s ease-out;
 
 /// ----------------------------------------------------------------------------------------------- BUTTON
 
 $button--background: $color--primary !default;
 $button--hover-background: $color--primary !default;
 $button--color: $white !default;
+
+/// ----------------------------------------------------------------------------------------------- FUNDA TILE
+
+$funda-tile--padding: 1em;
+$funda-tile--top-height: 15em;
 
 /// ----------------------------------------------------------------------------------------------- TYPE
 

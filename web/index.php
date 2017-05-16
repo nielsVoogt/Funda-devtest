@@ -1,14 +1,3 @@
-<?php
-    $data = file_get_contents('http://partnerapi.funda.nl/feeds/Aanbod.svc/005e7c1d6f6c4f9bacac16760286e3cd/?type=koop&zo=/haarlem/tuin/');
-    $xml=simplexml_load_string($data);
-    // print_r($xml->Objects->Object[1])
-?>
-
-<?php
-    $detail = json_decode(file_get_contents('http://partnerapi.funda.nl/feeds/Aanbod.svc/json/detail/005e7c1d6f6c4f9bacac16760286e3cd/koop/fd2d6326-0957-451c-b306-be450fcbf50b/'));
-    $placed = preg_replace("/[^0-9]/","",$detail->AangebodenSinds);
-?>
-
 <html class="no-js" lang="">
     <head>
         <meta charset="utf-8">
@@ -19,10 +8,15 @@
         <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
         <meta name="theme-color" content="#F7A100" />
 
-        <link rel="stylesheet" href="../styling/css/main.css">
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+        <link rel="stylesheet" href="/css/main.css">
+        <script src="/js/vendor/modernizr-2.8.3.min.js"></script>
     </head>
     <body>
+
+        <?php
+            $data = file_get_contents('http://partnerapi.funda.nl/feeds/Aanbod.svc/005e7c1d6f6c4f9bacac16760286e3cd/?type=koop&zo=/haarlem/tuin/');
+            $xml = simplexml_load_string($data);
+        ?>
 
         <div class="funda-header">
             <div class="container">
@@ -32,29 +26,44 @@
 
         <div class="tile-container" id="tile-container">
             <?php for ($i = 0; $i <= 10; $i++) : ?>
+
+                <?php $detail = json_decode(file_get_contents('http://partnerapi.funda.nl/feeds/Aanbod.svc/json/detail/005e7c1d6f6c4f9bacac16760286e3cd/koop/' . $xml->Objects->Object[$i]->Id . '/')); ?>
+
                 <div class="funda-tile">
                     <div class="funda-tile__top">
                         <div class="funda-tile__top__labels">
-                            <div class="label label--new">
-                                Nieuw
-                            </div>
+                            <?php if ((preg_match_all('!\d+!', $detail->AangebodenSindsTekst) === 0)) : ?>
+                                <div class="label label--new">
+                                    Nieuw
+                                </div>
+                            <?php endif ?>
                         </div>
                         <div
                             class="property-image"
                             style="background: url(<?= $xml->Objects->Object[$i]->FotoMedium ?>) no-repeat center center/cover;"
                         ></div>
+                        <div class="property-map">
+                            <!-- Het liefst zou ik deze Google Map pas willen inladen bij een hover op de betreffende ._funda-tile-zoom-picture -->
+                            <iframe
+                                frameborder="0"
+                                scrolling="no"
+                                src="https://maps.google.com/maps?q=+<?= $detail->WGS84_Y ?>+,+<?= $detail->WGS84_X ?>+&hl=es;z=14&amp;output=embed"
+                            ></iframe>
+                        </div>
                         <div class="property-details">
                             <div class="property-details__details">
                                 <h2 class="property-details__primary">
                                     <?= $xml->Objects->Object[$i]->PrijsGeformatteerdHtml ?>
                                 </h2>
                                 <small class="property-details__secondary">
-                                    <?= $xml->Objects->Object[$i]->Oppervlakte ?> / <?= $xml->Objects->Object[$i]->Perceeloppervlakte ?> m²
+                                    <?= $detail->WoonOppervlakte ?> m² / <?= $xml->Objects->Object[$i]->Perceeloppervlakte ?> m²
                                     <?= $xml->Objects->Object[$i]->AantalKamers ?> Kamers
                                 </small>
                             </div>
                             <div class="property-details__button">
-                                <a href="" class="zoom-picture _funda-tile-zoom-picture">
+
+                                <!-- Functionaliteit heb ik bij deze button achterwege gelaten => Idealiter zou deze een lightbox kunnen triggeren -->
+                                <a href="" class="round-btn _funda-tile-zoom-picture">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         width="24"
@@ -67,6 +76,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="funda-tile__center">
                         <div class="property-details">
                             <div class="property-details__details">
@@ -78,7 +88,7 @@
                                 </small>
                             </div>
                             <div class="property-details__button">
-                                <a href="_funda-tile-show-location">
+                                <a href="#" class="_funda-tile-show-location">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         width="24"
@@ -93,20 +103,32 @@
                         <div class="property-content">
                             <div class="property-content__description">
                                 <div class="property-content__description__inner">
-                                    <p><?php
-                                            $detail = json_decode(file_get_contents('http://partnerapi.funda.nl/feeds/Aanbod.svc/json/detail/005e7c1d6f6c4f9bacac16760286e3cd/koop/' . $xml->Objects->Object[$i]->Id . '/'));
-                                            echo $detail->VolledigeOmschrijving;
-                                        ?></p>
+                                    <p><?= $detail->VolledigeOmschrijving; ?></p>
                                 </div>
                             </div>
                             <div class="property-content__additional-information">
-                               as dsad saasd ads
+                                <div class="property-content__additional-information__inner">
+                                    <table>
+                                        <tbody>
+                                            <?php foreach($detail->KenmerkenKort->Kenmerken as $kenmerk) : ?>
+                                                <tr>
+                                                    <td>
+                                                        <p><?= $kenmerk->Naam ?></p>
+                                                    </td>
+                                                    <td>
+                                                        <p><?= $kenmerk->Waarde ?></p>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach ?>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="funda-tile__bottom">
                         <a href="#" class="btn btn--transparent _funda-tile-show-more">
-                            <span class="show-more-content">Meer informatie</span>
+                            <span class="_button-content">Bekijk de details</span>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 width="24"
@@ -121,8 +143,7 @@
             <?php endfor ?>
         </div>
 
-        <script src="js/vendor/jquery-1.11.2.min.js"></script>
-        <script src="js/vendor/lightbox.js"></script>
-        <script src="js/main.js"></script>
+        <script src="/js/vendor/jquery-1.11.2.min.js"></script>
+        <script src="/js/main.js"></script>
     </body>
 </html>

@@ -1,0 +1,39 @@
+
+/// ----------------------------------------------------------------------------------------------- PROPERTY-DETAILS
+
+@include b(property-details) {
+    display: table;
+    padding: $funda-tile--padding;
+    table-layout: fixed;
+    width: 100%;
+
+    @include e(details) {
+        display: table-cell;
+        line-height: normal;
+        vertical-align: middle;
+
+        h2,
+        small {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 95%;
+        }
+    }
+
+    @include e(button) {
+        @include square(2.5em);
+        display: table-cell;
+        vertical-align: middle;
+
+        a {
+            @include square(2.5em);
+            display: block;
+            position: relative;
+
+            svg {
+                @include center-it;
+            }
+        }
+    }
+}
