@@ -1,24 +1,24 @@
 
+/// ----------------------------------------------------------------------------------------------- TILE CONTAINER
+
 @include b(tile-container) {
     @include container;
-
-    $margin: .5em;
+    $margin: .75em;
 
     @include b(funda-tile) {
         display: inline-block;
         position: relative;
         vertical-align: top;
         width: 100%;
+        margin: $margin;
 
         @include breakpoint(map-get($breakpoints, tablet)) {
-            margin: $margin;
             $amount-calc: 100 / 2;
             $margin-calc: $margin * 2;
             width: calc((#{$amount-calc}% - #{$margin-calc}) - 4px);
         }
 
         @include breakpoint(map-get($breakpoints, desktop)) {
-            margin: $margin;
             $amount-calc: 100 / 3;
             $margin-calc: $margin * 2;
             width: calc((#{$amount-calc}% - #{$margin-calc}) - 4px);
@@ -28,8 +28,6 @@
 
 /// ----------------------------------------------------------------------------------------------- FUNDA TILE
 
-$funda-tile--padding: 1em;
-
 @include b(funda-tile) {
     box-shadow: .25em .25em 1em rgba($black, .2);
     background: $white;
@@ -38,10 +36,12 @@ $funda-tile--padding: 1em;
 
     @include e(top) {
         position: relative;
-         height: 15em;
+        height: $funda-tile--top-height;
+        overflow: hidden;
 
         @include b(property-image) {
             @include fill-her-up;
+            border-radius: $global--border-radius $global--border-radius 0 0;
         }
 
         @include e(labels) {
@@ -74,102 +74,12 @@ $funda-tile--padding: 1em;
 
             svg {
                 float: right;
-                transition: all .2s ease-out;
+                transition: $global--default-transition;
             }
 
             &.triggered svg {
                 transform: rotate(180deg);
             }
         }
-    }
-}
-
-@include b(property-details) {
-    padding: $funda-tile--padding;
-    display: table;
-    table-layout: fixed;
-    width: 100%;
-
-    @include e(details) {
-        display: table-cell;
-        line-height: normal;
-        vertical-align: middle;
-
-        h2,
-        small {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            width: 95%;
-        }
-    }
-
-    @include e(button) {
-        @include square(2.5em);
-        display: table-cell;
-        vertical-align: middle;
-
-        a {
-            @include square(2.5em);
-            position: relative;
-            display: block;
-
-            svg {
-                @include center-it;
-            }
-        }
-    }
-}
-
-$property-content--gradient-height: 3em;
-
-@include b(property-content) {
-    border-top: 1px solid $global--border-color;
-    height: 15em;
-    overflow: hidden;
-    position: relative;
-
-    @include me(description, additional-information) {
-        height: 15em;
-        background: $white;
-        overflow-y: scroll;
-        transition: all .2s ease-out;
-        width: calc(100% + 17px); // To hide the scrollbars
-        padding: $funda-tile--padding calc(#{$funda-tile--padding} + 17px) $funda-tile--padding $funda-tile--padding;
-
-        @include e(inner) {
-            padding: 0 0 $property-content--gradient-height;
-        }
-
-        p {
-            white-space: pre-line;
-        }
-    }
-
-    @include e(description) {
-        [class$='--triggered'] & {
-            transform: translateY(-100%);
-        }
-    }
-
-    @include e(additional-information) {
-        transform: translateY(100%);
-        position: absolute;
-        top: 0;
-
-        [class$='--triggered'] & {
-            transform: none;
-        }
-    }
-
-    &::after {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: $property-content--gradient-height;
-        content: '';
-        pointer-events: none;
-        background: linear-gradient(rgba($white, 0), $white);
     }
 }

@@ -1,0 +1,25 @@
+
+/// ----------------------------------------------------------------------------------------------- PROPERTY-MAPS
+
+@include b(property-map) {
+    @include fill-her-up;
+    height: $funda-tile--top-height;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(100%);
+    transition: $global--default-transition;
+    z-index: 10;
+
+    // --- MODIFER ON .funda-tile
+
+    [class$='--show-map'] & {
+        opacity: 1;
+        pointer-events: all;
+        transform: none;
+    }
+
+    iframe {
+        height: $funda-tile--top-height;
+        width: 100%;
+    }
+}

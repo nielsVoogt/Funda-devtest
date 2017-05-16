@@ -1,0 +1,77 @@
+
+/// ----------------------------------------------------------------------------------------------- PROPERTY CONTENT
+
+$property-content--gradient-height: 3em;
+
+@include b(property-content) {
+    border-top: 1px solid $global--border-color;
+    height: 15em;
+    overflow: hidden;
+    position: relative;
+
+    /// ------------------------------------ DESCRIPTION AND ADDITIONAL INFORMATION
+
+    @include me(description, additional-information) {
+        background: $white;
+        height: 15em;
+        overflow-y: scroll;
+        padding: $funda-tile--padding calc(#{$funda-tile--padding} + 17px) $funda-tile--padding $funda-tile--padding;
+        transition: $global--default-transition;
+        width: calc(100% + 17px); // To hide the scrollbars
+
+        @include e(inner) {
+            padding: 0 0 $property-content--gradient-height;
+        }
+
+        p {
+            font-size: .9rem;
+            white-space: pre-line;
+        }
+    }
+
+    @include e(description) {
+        [class$='--show-additional-content'] & {
+            transform: translateY(-100%);
+        }
+    }
+
+    @include e(additional-information) {
+        position: absolute;
+        top: 0;
+        transform: translateY(100%);
+
+        [class$='--show-additional-content'] & {
+            transform: none;
+        }
+    }
+
+    /// ------------------------------------ TABLE SYLES
+
+    table {
+        td {
+            padding: .5em 0;
+
+            &:first-child {
+                font-weight: bold;
+                padding: .5em 1em .5em 0;
+            }
+        }
+
+        tr:not(:last-child) {
+            border-bottom: 1px solid $global--border-color;
+        }
+    }
+
+    /// ------------------------------------ THE GRADIENT INDICATING SCROLL-FUNCTIONALITY
+
+    &::after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: $property-content--gradient-height;
+        content: '';
+        pointer-events: none;
+        background: linear-gradient(rgba($white, 0), $white);
+    }
+}

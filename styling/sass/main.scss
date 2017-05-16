@@ -22,16 +22,13 @@
 
 @import 'components/buttons';
 @import 'components/label';
-
-/// ----------------------------------------------------------------------------------------------- VENDOR
-
-// @import 'vendor/slick';
-// @import 'vendor/slick-custom';
-
+@import 'components/property-content';
+@import 'components/property-details';
+@import 'components/property-map';
 
 /// ----------------------------------------------------------------------------------------------- DEBUG
 
 // @import 'debug/show-all-elements';
-@import 'debug/show-breakpoints';
+// @import 'debug/show-breakpoints';
 // @import 'debug/slow-transitions';
 // @import 'debug/diagnostics';
