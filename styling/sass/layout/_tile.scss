@@ -1,9 +1,7 @@
 
 @include b(tile-container) {
     @include container;
-    width: 100%;
 
-    $amount: 3;
     $margin: .5em;
 
     @include b(funda-tile) {
@@ -12,9 +10,16 @@
         vertical-align: top;
         width: 100%;
 
-        @include breakpoint(map-get($breakpoints, mobile)) {
+        @include breakpoint(map-get($breakpoints, tablet)) {
             margin: $margin;
-            $amount-calc: 100 / $amount;
+            $amount-calc: 100 / 2;
+            $margin-calc: $margin * 2;
+            width: calc((#{$amount-calc}% - #{$margin-calc}) - 4px);
+        }
+
+        @include breakpoint(map-get($breakpoints, desktop)) {
+            margin: $margin;
+            $amount-calc: 100 / 3;
             $margin-calc: $margin * 2;
             width: calc((#{$amount-calc}% - #{$margin-calc}) - 4px);
         }
@@ -57,10 +62,6 @@ $funda-tile--padding: 1em;
                 color: $white;
             }
         }
-    }
-
-    @include e(center) {
-        // background: green;
     }
 
     @include e(bottom) {
@@ -138,6 +139,10 @@ $property-content--gradient-height: 3em;
 
         @include e(inner) {
             padding: 0 0 $property-content--gradient-height;
+        }
+
+        p {
+            white-space: pre-line;
         }
     }
 

@@ -18,5 +18,10 @@
 
     img {
         width: 6em;
+        display: block;
+
+        @include breakpoint(map-get($breakpoints, on-mobile)) {
+            margin: 0 auto;
+        }
     }
 }

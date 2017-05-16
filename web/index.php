@@ -4,6 +4,11 @@
     // print_r($xml->Objects->Object[1])
 ?>
 
+<?php
+    $detail = json_decode(file_get_contents('http://partnerapi.funda.nl/feeds/Aanbod.svc/json/detail/005e7c1d6f6c4f9bacac16760286e3cd/koop/fd2d6326-0957-451c-b306-be450fcbf50b/'));
+    $placed = preg_replace("/[^0-9]/","",$detail->AangebodenSinds);
+?>
+
 <html class="no-js" lang="">
     <head>
         <meta charset="utf-8">
@@ -26,7 +31,7 @@
         </div>
 
         <div class="tile-container" id="tile-container">
-            <?php for ($x = 0; $x <= 10; $x++) : ?>
+            <?php for ($i = 0; $i <= 10; $i++) : ?>
                 <div class="funda-tile">
                     <div class="funda-tile__top">
                         <div class="funda-tile__top__labels">
@@ -36,16 +41,16 @@
                         </div>
                         <div
                             class="property-image"
-                            style="background: url(<?= $xml->Objects->Object[$x]->FotoMedium ?>) no-repeat center center/cover;"
+                            style="background: url(<?= $xml->Objects->Object[$i]->FotoMedium ?>) no-repeat center center/cover;"
                         ></div>
                         <div class="property-details">
                             <div class="property-details__details">
                                 <h2 class="property-details__primary">
-                                    € <?= $xml->Objects->Object[$x]->PrijsGeformatteerdHtml ?>
+                                    <?= $xml->Objects->Object[$i]->PrijsGeformatteerdHtml ?>
                                 </h2>
                                 <small class="property-details__secondary">
-                                    <?= $xml->Objects->Object[$x]->Oppervlakte ?> / <?= $xml->Objects->Object[$x]->Perceeloppervlakte ?> m²
-                                    <?= $xml->Objects->Object[$x]->AantalKamers ?> Kamers
+                                    <?= $xml->Objects->Object[$i]->Oppervlakte ?> / <?= $xml->Objects->Object[$i]->Perceeloppervlakte ?> m²
+                                    <?= $xml->Objects->Object[$i]->AantalKamers ?> Kamers
                                 </small>
                             </div>
                             <div class="property-details__button">
@@ -66,10 +71,10 @@
                         <div class="property-details">
                             <div class="property-details__details">
                                 <h2 class="property-details__primary">
-                                    <?= $xml->Objects->Object[$x]->Adres ?>
+                                    <?= $xml->Objects->Object[$i]->Adres ?>
                                 </h2>
                                 <small class="property-details__secondary">
-                                    <?= chunk_split($xml->Objects->Object[$x]->Postcode, 4, " "); ?>
+                                    <?= chunk_split($xml->Objects->Object[$i]->Postcode, 4, " "); ?>
                                 </small>
                             </div>
                             <div class="property-details__button">
@@ -88,9 +93,10 @@
                         <div class="property-content">
                             <div class="property-content__description">
                                 <div class="property-content__description__inner">
-                                    <p>
-                                        Een huis kan alleen maar warmte uitstralen als het plaatje klopt en dat is in dit huis zeker het geval. In dit huis zul je je direct thuis voelen; de zithoek met een grote bank wordt een relaxplek voor het gehele gezin en de gezellige eetkamer zorgt ervoor dat alle verhalen samen komen. Kom eens kijken in deze keurig onderhouden woning in jaren 30 stijl. Hier vind je diverse karakteristieken uit
-                                    </p>
+                                    <p><?php
+                                            $detail = json_decode(file_get_contents('http://partnerapi.funda.nl/feeds/Aanbod.svc/json/detail/005e7c1d6f6c4f9bacac16760286e3cd/koop/' . $xml->Objects->Object[$i]->Id . '/'));
+                                            echo $detail->VolledigeOmschrijving;
+                                        ?></p>
                                 </div>
                             </div>
                             <div class="property-content__additional-information">
@@ -116,7 +122,7 @@
         </div>
 
         <script src="js/vendor/jquery-1.11.2.min.js"></script>
-        <script src="js/vendor/slick.min.js"></script>
+        <script src="js/vendor/lightbox.js"></script>
         <script src="js/main.js"></script>
     </body>
 </html>

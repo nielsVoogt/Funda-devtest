@@ -1,11 +1,8 @@
 
-/// ----------------------------------------------------------------------------------------------- BUTTONMIXIN
-
-@include b(btn) {
+@mixin btn-base {
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     -webkit-tap-highlight-color: transparent; /* For some Androids */
     background: $button--background;
-    border: 1px solid $white;
     color: $button--color;
     cursor: pointer;
     display: inline-block;
@@ -14,10 +11,15 @@
     line-height: normal;
     padding: 1em;
     text-align: center;
-    transition-timing-function: ease-in-out;
-    transition: background .1s;
-    vertical-align: top;
+    transition: background .1s ease-in-out;
     font-weight: bold;
+    vertical-align: top;
+}
+
+/// ----------------------------------------------------------------------------------------------- BUTTONMIXIN
+
+@include b(btn) {
+    @include btn-base;
 
     &:hover {
         background: $white;
